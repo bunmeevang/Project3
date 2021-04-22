@@ -1,3 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import Array
+from .models import Push
+admin.site.register(Array)
+admin.site.register(Push)
