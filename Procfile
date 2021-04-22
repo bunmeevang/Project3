@@ -1,1 +1,1 @@
-web: gunicorn codrproject.wsgi
+web: gunicorn codr.wsgi
