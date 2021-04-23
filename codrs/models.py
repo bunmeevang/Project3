@@ -7,7 +7,7 @@ class Array(models.Model):
 class Push(models.Model):
     user = models.CharField(max_length=100)
     push = models.CharField(max_length=1000)
-    # array = models.ForeignKey(Array, on_delete=models.CASCADE, related_name="pushes")
+    array = models.ForeignKey(Array, on_delete=models.CASCADE, related_name="push")
 
 class Profile(models.Model):
     firstname = models.CharField(max_length=100, default='')
