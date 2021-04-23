@@ -17,13 +17,14 @@ import django
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from codrs.views import ArrayViewSet, PushViewSet
+from codrs.views import ArrayViewSet, PushViewSet, ProfileViewSet
 
 # create a new router
 router = routers.DefaultRouter()
 # register our viewsets
 router.register(r'array', ArrayViewSet) 
 router.register(r'push', PushViewSet) 
+router.register(r'profile', ProfileViewSet) 
 
 
 urlpatterns = [
