@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from .serializers import ArraySerializer, PushSerializer, ProfileSerializer
 
+
 class ArrayViewSet(viewsets.ModelViewSet):
     ## The Main Query for the index route
     queryset = Array.objects.all()
@@ -28,3 +29,4 @@ class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
     # optional permission class set permission level
     permission_classes = [permissions.AllowAny] #Could be [permissions.IsAuthenticated]
+

@@ -19,6 +19,7 @@ from django.urls import path, include
 from rest_framework import routers
 from codrs.views import ArrayViewSet, PushViewSet, ProfileViewSet
 
+
 # create a new router
 router = routers.DefaultRouter()
 # register our viewsets
@@ -32,4 +33,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     # path('login/', include(django.contrib.auth.urls))
+
 ]
