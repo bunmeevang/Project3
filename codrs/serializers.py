@@ -15,7 +15,7 @@ class PushSerializer(serializers.HyperlinkedModelSerializer):
         # The model it will serialize
         model = Push
         # the fields that should be included in the serialized output
-        fields = ['id', 'user', 'push']
+        fields = ['id', 'user', 'push', 'array']
 
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
