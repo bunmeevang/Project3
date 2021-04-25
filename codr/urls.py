@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from codrs.views import ArrayViewSet, PushViewSet, ProfileViewSet
-from account.views import AccountViewSet
+# from account.views import AccountViewSet
 
 
 
@@ -28,7 +28,7 @@ router = routers.DefaultRouter()
 router.register(r'array', ArrayViewSet) 
 router.register(r'push', PushViewSet) 
 router.register(r'profile', ProfileViewSet) 
-router.register(r'account', AccountViewSet)
+# router.register(r'account', AccountViewSet)
 
 
 urlpatterns = [

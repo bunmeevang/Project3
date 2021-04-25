@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'codrs.apps.CodrsConfig',
     'rest_framework',
     'corsheaders',
-    'account',
 ]
 
 
@@ -76,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = 'account.Account'
+# AUTH_USER_MODEL = 'account.Account'
 
 WSGI_APPLICATION = 'codr.wsgi.application'
 
