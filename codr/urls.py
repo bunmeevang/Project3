@@ -17,7 +17,7 @@ import django
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from codrs.views import ArrayViewSet, PushViewSet, ProfileViewSet
+from codrs.views import ArrayViewSet, CommentViewSet, ProfileViewSet
 # from account.views import AccountViewSet
 
 
@@ -26,7 +26,7 @@ from codrs.views import ArrayViewSet, PushViewSet, ProfileViewSet
 router = routers.DefaultRouter()
 # register our viewsets
 router.register(r'array', ArrayViewSet) 
-router.register(r'push', PushViewSet) 
+router.register(r'comment', CommentViewSet) 
 router.register(r'profile', ProfileViewSet) 
 # router.register(r'account', AccountViewSet)
 
