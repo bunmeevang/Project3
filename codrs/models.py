@@ -7,10 +7,10 @@ class Array(models.Model):
     # def __str__(self):
     #     return '%d: %s' % (self.user, self.body)
 
-class Push(models.Model):
+class Comment(models.Model):
     user = models.CharField(max_length=100, default="user")
-    push = models.CharField(max_length=1000, default="push")
-    array = models.ForeignKey(Array, on_delete=models.CASCADE, related_name="push", null=True, blank=True)
+    comment = models.CharField(max_length=1000, default="comment")
+    array = models.ForeignKey(Array, on_delete=models.CASCADE, related_name="comment", null=True, blank=True)
 
     # def __str__(self):
     #     return '%d: %s' % (self.user, self.push)

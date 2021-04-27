@@ -1,43 +1,43 @@
-from .models import Array, Push, Profile
+from .models import Array, Comment, Profile
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
-class PushSerializer(serializers.HyperlinkedModelSerializer):
+class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         # The model it will serialize
-        model = Push
+        model = Comment
         # the fields that should be included in the serialized output
-        fields = ['id', 'user', 'push']
+        fields = ['id', 'user', 'comment']
 
 
 class ArraySerializer(serializers.ModelSerializer):
     # push = serializers.StringRelatedField(many=True)
-    push = PushSerializer(many=True)
+    comment = CommentSerializer(many=True)
     class Meta:
         model = Array
-        fields = ['id', 'user', 'body', 'push']
+        fields = ['id', 'user', 'body', 'comment']
 
     def create(self, validated_data):
-        push_data = validated_data.pop('push')
+        comment_data = validated_data.pop('comment')
         array = Array.objects.create(**validated_data)
-        for push_data in push_data:
-            Push.objects.create(array=array, **push_data)
-            Push.objects.create(push=push, **push_data)
+        for comment_data in comment_data:
+            Comment.objects.create(array=array, **comment_data)
+            Comment.objects.create(comment=comment, **comment_data)
         return array
 
     def update(self, instance, validated_data):
-        push_data = validated_data.pop('push')
-        pushs = (instance.push).all()
-        pushs = list(pushs)
+        comment_data = validated_data.pop('comment')
+        comments = (instance.comment).all()
+        comments = list(comments)
         instance.user = validated_data.get('user', instance.user)
         instance.body = validated_data.get('body', instance.body)
         instance.save()
 
-        for push_data in push_data:
-            push = pushs.pop(0)
-            push.user = push_data.get('user', push.user)
-            push.body = push_data.get('push', push.push)
-            push.save()
+        for comment_data in comment_data:
+            comment = comments.pop(0)
+            comment.user = comment_data.get('user', comment.user)
+            comment.body = comment_data.get('comment', comment.comment)
+            comment.save()
         return instance
 
 
