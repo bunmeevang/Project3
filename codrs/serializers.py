@@ -4,14 +4,11 @@ from rest_framework import serializers
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        # The model it will serialize
         model = Comment
-        # the fields that should be included in the serialized output
         fields = ['id', 'user', 'comment']
 
 
 class ArraySerializer(serializers.ModelSerializer):
-    # push = serializers.StringRelatedField(many=True)
     comment = CommentSerializer(many=True)
     class Meta:
         model = Array
@@ -43,8 +40,6 @@ class ArraySerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        # The model it will serialize
         model = Profile
-        # the fields that should be included in the serialized output
         fields = ['id', 'firstname', 'lastname', 'genderpronouns', 'location', 'aboutme', 'linkedin']
 

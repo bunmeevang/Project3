@@ -4,16 +4,12 @@ class Array(models.Model):
     user = models.CharField(max_length=100, default="user")
     body = models.CharField(max_length=3000, default="body")
 
-    # def __str__(self):
-    #     return '%d: %s' % (self.user, self.body)
 
 class Comment(models.Model):
     user = models.CharField(max_length=100, default="user")
     comment = models.CharField(max_length=1000, default="comment")
     array = models.ForeignKey(Array, on_delete=models.CASCADE, related_name="comment", null=True, blank=True)
 
-    # def __str__(self):
-    #     return '%d: %s' % (self.user, self.push)
 
 class Profile(models.Model):
     firstname = models.CharField(max_length=100, default='')
